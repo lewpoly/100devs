@@ -1,0 +1,25 @@
+ul {
+  color: blue;
+  text-decoration: underline;
+  font-size: 15px;
+  background: gray;
+}
+section {
+  background-color: hsla(293, 18%, 50%, 1);
+  height: 300px;
+  border: 5px solid Gold;
+}
+h1 {
+  font-size: 30px;
+  color: Gold;
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+footer {
+  background-color: hsla(27, 100%, 18%, 1);
+  height: 300px;
+  width: 70%;
+}
+h2 {
+  text-decoration: line-through;
+}
