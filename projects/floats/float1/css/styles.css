@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+header,
+footer {
+  min-height: 150px;
+  border: 1px solid black;
+  clear: both;
+}
+
+.top article{
+  float: left;
+  min-height: 250px;
+  width: 33.3333%;
+  border: 1px solid black;
+}
+
+.bottom article{
+  float: left;
+  min-height: 325px;
+  width: 50%;
+  border: 1px solid black;
+}

@@ -1,0 +1,35 @@
+*{
+  box-sizing: border-box;
+}
+
+header, footer{
+  min-height: 150px;
+  border: 1px solid black;
+  clear: both;
+}
+
+section .left{
+  min-height: 600px;
+  width: 20%;
+  border: solid 1px black;
+  float: left;
+}
+
+section .leftmiddle{
+  min-height: 600px;
+  width: 40%;
+  border: solid 1px black;
+  float: left;
+}
+section .rightmiddle{
+  min-height: 600px;
+  width: 20%;
+  border: solid 1px black;
+  float: left;
+}
+section .right{
+  min-height: 600px;
+  width: 20%;
+  border: solid 1px black;
+  float: left;
+}

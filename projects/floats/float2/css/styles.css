@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+header,
+footer {
+  min-height: 150px;
+  clear: both;
+  border: 1px solid black;
+}
+
+.top{
+  min-height: 250px;
+  width: 100%;
+  float: left;
+  border: 1px solid black;
+}
+
+.bottom .left{
+  min-height: 350px;
+  width: 33.3333%;
+  float: left;
+  border: 1px solid black;
+}
+
+.bottom .right{
+  min-height: 350px;
+  width: 66.6666%;
+  float: left;
+  border: 1px solid black;
+}
