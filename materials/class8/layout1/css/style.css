@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital@0;1&family=Outfit:wght@300;600&family=Roboto:wght@100;400&display=swap");
+
 /* Box Model Hack */
 * {
   box-sizing: border-box;
@@ -5,38 +7,168 @@
 
 /* Clear fix hack */
 .clearfix:after {
-     content: ".";
-     display: block;
-     clear: both;
-     visibility: hidden;
-     line-height: 0;
-     height: 0;
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
 }
 
 .clear {
-	clear: both;
+  clear: both;
 }
 
 /******************************************
 /* BASE STYLES
 /*******************************************/
 
-body {
-
-}
-
-
 /******************************************
 /* LAYOUT
 /*******************************************/
-header {
-
+nav,
+main,
+aside {
+  /* padding: 20px; */
+  float: left;
+  min-width: 250px;
+  /* margin-left: 20px; */
+  /* margin-top: 20px; */
+}
+main,
+aside {
+  margin-top: 0px;
 }
 
-footer {
-
+/* LEFT SIDE NAV */
+nav * {
+  font-size: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  text-decoration: none;
+  color: black;
+  font-family: Roboto, sans-serif;
+  font-weight: 100;
 }
 
+.topleft {
+  padding: 0px;
+}
+
+.topleft img {
+  width: 110px;
+  padding: 30px 0px 0px 30px;
+}
+
+.join a {
+  color: #fcc008;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.join a:hover {
+  color: #fba900;
+}
+
+.login a {
+  font-size: 20px;
+  /* font-size: 20px; */
+  /* float: left; */
+}
+
+.login a:hover {
+  color: green;
+}
+
+.left li {
+  margin-top: 20px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.left a:hover {
+  color: Green;
+}
+
+.crunch a:hover {
+  color: #fcc008;
+}
+/* LEFT SIDE NAV */
+
+main {
+  max-width: 850px;
+  /* padding-left: 20px; */
+  /* border: 1px solid black; */
+}
+h1 {
+  font-size: 2.5em;
+  padding-right: 10%;
+}
+aside {
+  max-width: 600px;
+  height: 750px;
+  /* border: 1px solid black; */
+}
+aside h2 {
+  font-size: 2rem;
+}
+aside li:nth-child(-n + 3) {
+  border-bottom: 1px solid rgba(18, 31, 34, 0.3);
+}
+.plus {
+  width: 60px;
+  padding-top: 20px;
+}
+
+.latest {
+  margin-left: 250px;
+  font-size: 1.5rem;
+  padding-bottom: 20px;
+  max-width: 1450px;
+  border-bottom: 1px solid rgba(18, 31, 34, 0.3);
+  /* float: left; */
+}
+
+section {
+  /* max-height: 340px; */
+  margin-left: 250px;
+  max-width: 1450px;
+  /* max-height: 260px; */
+  /* float: left; */
+}
+.left {
+  float: left;
+  width: 33%;
+}
+
+.left h2 {
+  /* float: left; */
+  font-size: 2.5rem;
+  padding-right: 20px;
+}
+.left div {
+  padding: 0px;
+}
+.mid {
+  /* font-size: 3rem; */
+  width: 33%;
+  float: left;
+  padding-right: 40px;
+  font-size: 1.5rem;
+  color: rgba(18, 31, 34, 0.5);
+}
+
+.right img {
+  width: 33%;
+  float: left;
+}
+
+/* section img { */
+/*   float: right; */
+/* } */
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/

@@ -21,6 +21,9 @@
 /* BASE STYLES
 /*******************************************/
 
+body {
+}
+
 /******************************************
 /* LAYOUT
 /*******************************************/
@@ -54,7 +57,7 @@ main section + section section {
   width: 50%;
   height: 250px;
   float: left;
-  border: 0px solid black;
+  border: 1px solid black;
 }
 /******************************************
 /* ADDITIONAL STYLES
