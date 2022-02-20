@@ -24,13 +24,3 @@ function sub2() {
   total = total - 2;
   document.querySelector('#placeToPutResult').innerHTML = total;
 }
-
-if (age > 18) {
-  console.log('You are an adult');
-}
-
-if (age < 18) {
-  console.log('Grow the fuck up')
-}
-
-age = 12
