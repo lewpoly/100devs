@@ -32,9 +32,10 @@ function letKnow(above) {
 letKnow(90 + 48);
 
 // Create a function that multiplys three numbers and if the product is divisible by 3 alert ZEBRA
-function divThree(modu) {
+function divThree(n1, n2, n3) {
+  let modu = n1 * n2 * n3;
   if (modu % 3 === 0) {
     alert('zebra');
   }
 }
-divThree(99);
+divThree(33, 3, 0);
