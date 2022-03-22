@@ -26,7 +26,9 @@ console.log(divTwoNums(75, 4));
 //or
 function addTwoNumbersAndAlert(a, b) {
   let sum1 = a + b;
-  if (sum1 > 50) alert('Jumanji');
+  if (sum1 > 50) {
+    alert('Jumanji');
+  }
 }
 addTwoNumbersAndAlert(25, 26);
 
