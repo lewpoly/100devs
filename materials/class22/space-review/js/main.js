@@ -1,6 +1,9 @@
 //Arrays
 
 //Create and array of numbers. Sum all of the numbers. Alert the sum.
+let nums = [2, 5, 22, 65];
+let sum = nums.reduce((acc, c) => acc + c, 0);
+console.log(sum)
 
 //Create a function that takes in an array of numbers
 //Return a new array of numbers that is every original number squared
