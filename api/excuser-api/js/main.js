@@ -35,7 +35,7 @@ function getFetch() {
     .then((data) => {
       // console.log(data);
       document.querySelector('h2').innerHTML = data[0].excuse;
-    })
+    });
   fetch(urlParty)
     .then((res) => res.json())
     .then((data) => {
