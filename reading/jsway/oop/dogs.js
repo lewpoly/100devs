@@ -9,17 +9,21 @@ class Dog {
     this.size = size;
     this.bark = str;
   }
-  describe() {
-    return `${this.name} is ${this.species} dog measuring ${this.size}`;
-  }
-  attack() {
-    return `Look, a cat! ${this.name} barks: ${this.bark}`;
+
+  // Dog bark function
+  bark() {
+    let response = 'Woof! Woof!';
+    if (this.size > 60) {
+      response = 'Grrr! Grrr!';
+    }
+    return response;
   }
 }
 
 const fang = new Dog('Fang', 'boarhound', 75, 'Grrr! Grrr!');
+console.log(`${fang.name} is ${fang.species} dog measuring ${fang.size}`);
+console.log(`Look, a cat! ${fang.name} barks: ${fang.bark}`);
+
 const snowy = new Dog('Snowy', 'terrier', 22, 'Woof! Woof!');
-console.log(fang.describe());
-console.log(fang.attack());
-console.log(snowy.describe());
-console.log(snowy.attack());
+console.log(`${snowy.name} is ${snowy.species} dog measuring ${snowy.size}`);
+console.log(`Look, a cat! ${snowy.name} barks: ${snowy.bark}`);
