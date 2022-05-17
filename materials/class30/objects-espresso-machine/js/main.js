@@ -43,4 +43,4 @@ class LeonsMachine {
 }
 
 let gaggia = new LeonsMachine('red', 'Gaggia', 'Classic Pro', 400);
-console.log(gaggia);
+console.log(gaggia.turnOn());
