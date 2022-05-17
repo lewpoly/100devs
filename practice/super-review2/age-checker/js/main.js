@@ -13,16 +13,16 @@
 document.querySelector('h1').addEventListener('click', checkAge);
 const p = document.querySelector('p');
 function checkAge() {
-  let age = Number(document.querySelector('input').value);
-  if (age < 16) {
+  let alice = Number(document.querySelector('input').value);
+  if (alice < 16) {
     p.innerText = 'you can not drive';
-  } else if (age < 18) {
+  } else if (alice < 18) {
     p.innerText = "dont't hate from outside the club";
-  } else if (age < 21) {
+  } else if (alice < 21) {
     p.innerText = "you can't drink";
-  } else if (age < 25) {
+  } else if (alice < 25) {
     p.innerText = "you can't rent cars affordably";
-  } else if (age < 30) {
+  } else if (alice < 30) {
     p.innerText = "you can't rent 'dem fancy cars";
   } else {
     p.innerText = 'there is nothing left to look forward to';
