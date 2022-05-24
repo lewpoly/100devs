@@ -130,13 +130,22 @@
 //     console.log(houseThreeWait);
 // }
 
-getPaid();
+// getPaid();
 
 // TODO: add a try...catch to this function
 //Code 08
 async function getACuteDogPhoto() {
-  const res = await fetch('https://dog.ceo/api/breeds/image/random');
-  const data = await res.json();
-  console.log(data);
+  try {
+    // await response of the fetch call
+    const res = await fetch('https://dog.ceo/api/breeds/image/random');
+
+    // only proceed once it's resolved
+    const data = await res.json();
+
+    // only proceed once the second promise is resolved
+    return data;
+  } catch (error) {
+    console.error(`Could not find photo: ${error}`);
+  }
 }
-getACuteDogPhoto();
+getACuteDogPhoto().then((random) => console.log(random));
