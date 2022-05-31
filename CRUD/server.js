@@ -3,29 +3,78 @@ const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
+const connectionString =
+  'mongodb+srv://lewpoly:Da!sy103Chain@crudcluster.c82lufh.mongodb.net/?retryWrites=true&w=majority';
 
-MongoClient.connect(
-  'mongodb+srv://lewpoly:Da!sy103Chain@crudcluster.c82lufh.mongodb.net/?retryWrites=true&w=majority'
-)
+MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then((client) => {
     console.log('Connected to Database');
     const db = client.db('happy-gilmore-quotes');
     const quotesCollection = db.collection('quotes');
-    app.get('/', (req, res) => {
-      res.sendFile(__dirname + '/index.html');
+
+    // Middlewares
+    app.set('view engine', 'ejs');
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.json());
+    app.use(express.static('public'));
+
+    // Routes
+    app.get('/', (_req, res) => {
+      db.collection('quotes')
+        .find()
+        .toArray()
+        .then((quotes) => {
+          res.render('index.ejs', { quotes: quotes });
+        })
+        .catch(/* ... */);
     });
+
     app.post('/quotes', (req, res) => {
-      quotesCollection.insertOne(req.body).then((result) => {
-        res.redirect('/');
-      });
+      quotesCollection
+        .insertOne(req.body)
+        // eslint-disable-next-line no-unused-vars
+        .then((_result) => {
+          res.redirect('/');
+        })
+        .catch((error) => console.error(error));
     });
-    app.get('/', (req, res) => {
-      const cursor = db.collection('quotes').find();
-      console.log(cursor);
+
+    app.put('/quotes', (req, res) => {
+      quotesCollection
+        .findOneAndUpdate(
+          { name: 'Happy' },
+          {
+            $set: {
+              name: req.body.name,
+              quote: req.body.quote,
+            },
+          },
+          {
+            upsert: true,
+          }
+        )
+        .then((result) => res.json('Success'))
+        .catch((error) => console.log(error));
     });
-    app.listen(3000, () => {
-      console.log('listening on 3000');
+
+    app.delete('/quotes', (req, res) => {
+      quotesCollection
+        .deleteOne({ name: req.body.name })
+        .then((result) => {
+          if (result.deleteCount === 0) {
+            return res.json('No quote to delete');
+          }
+          res.json("Deleted Shooter McGavin's quote");
+        })
+        .catch((error) => console.error(error));
+    });
+
+    // Listen
+    const isProduction = connectionString === 'production'
+    const port = isProduction ? 7500 : 3000
+    app.listen(port, function() {
+      console.log(`listening on ${port}`);
     });
   })
-  .catch((error) => console.error(error));
+
+  .catch(console.error);
