@@ -19,16 +19,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     app.use(express.static('public'));
 
     // Routes
-    app.get('/', (_req, res) => {
-      db.collection('quotes')
-        .find()
-        .toArray()
-        .then((quotes) => {
-          res.render('index.ejs', { quotes: quotes });
-        })
-        .catch(/* ... */);
-    });
 
+    // Create
     app.post('/quotes', (req, res) => {
       quotesCollection
         .insertOne(req.body)
@@ -39,6 +31,18 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         .catch((error) => console.error(error));
     });
 
+    // Read
+    app.get('/', (_req, res) => {
+      db.collection('quotes')
+        .find()
+        .toArray()
+        .then((quotes) => {
+          res.render('index.ejs', { quotes: quotes });
+        })
+        .catch(/* ... */);
+    });
+
+    // Update
     app.put('/quotes', (req, res) => {
       quotesCollection
         .findOneAndUpdate(
@@ -57,6 +61,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         .catch((error) => console.log(error));
     });
 
+    // Delete
     app.delete('/quotes', (req, res) => {
       quotesCollection
         .deleteOne({ name: req.body.name })
@@ -70,9 +75,9 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     });
 
     // Listen
-    const isProduction = connectionString === 'production'
-    const port = isProduction ? 7500 : 3000
-    app.listen(port, function() {
+    const isProduction = connectionString === 'production';
+    const port = isProduction ? 7500 : 3000;
+    app.listen(port, function () {
       console.log(`listening on ${port}`);
     });
   })
