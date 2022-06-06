@@ -1,0 +1,7 @@
+POST http://localhost:3000/quotes/happy
+content-type: application/json
+
+{
+    "name": "happy",
+    "quotes": "footlong sub"
+}
