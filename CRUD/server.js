@@ -7,7 +7,7 @@ const connectionString =
   'mongodb+srv://lewpoly:Da!sy103Chain@crudcluster.c82lufh.mongodb.net/?retryWrites=true&w=majority';
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
-  .then((client) => {
+  .then(client => {
     console.log('Connected to Database');
     const db = client.db('happy-gilmore-quotes');
     const quotesCollection = db.collection('quotes');
@@ -25,10 +25,10 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       quotesCollection
         .insertOne(req.body)
         // eslint-disable-next-line no-unused-vars
-        .then((_result) => {
+        .then(_result => {
           res.redirect('/');
         })
-        .catch((error) => console.error(error));
+        .catch(error => console.error(error));
     });
 
     // Read
@@ -36,7 +36,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       db.collection('quotes')
         .find()
         .toArray()
-        .then((quotes) => {
+        .then(quotes => {
           res.render('index.ejs', { quotes: quotes });
         })
         .catch(/* ... */);
@@ -50,28 +50,28 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
           {
             $set: {
               name: req.body.name,
-              quote: req.body.quote,
-            },
+              quote: req.body.quote
+            }
           },
           {
-            upsert: true,
+            upsert: true
           }
         )
-        .then((result) => res.json('Success'))
-        .catch((error) => console.log(error));
+        .then(result => res.json('Success'))
+        .catch(error => console.log(error));
     });
 
     // Delete
     app.delete('/quotes', (req, res) => {
       quotesCollection
         .deleteOne({ name: req.body.name })
-        .then((result) => {
+        .then(result => {
           if (result.deleteCount === 0) {
             return res.json('No quote to delete');
           }
           res.json("Deleted Shooter McGavin's quote");
         })
-        .catch((error) => console.error(error));
+        .catch(error => console.error(error));
     });
 
     // Listen
